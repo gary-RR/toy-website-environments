@@ -12,9 +12,11 @@ permissions:
   contents: read
 
 jobs:
+
   # Lint the Bicep file.
   lint:
     uses: ./.github/workflows/lint.yml
+
   # Deploy to the test environment.
   deploy-test:
     uses: ./.github/workflows/deploy.yml
@@ -26,7 +28,8 @@ jobs:
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID_TEST }}
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
       AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-    # Deploy to the production environment.
+
+  # Deploy to the production environment.
   deploy-production:
     uses: ./.github/workflows/deploy.yml
     needs: deploy-test
