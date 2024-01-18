@@ -44,9 +44,6 @@ productionResourceGroupResourceId=$(az group create --name ToyWebsiteProduction 
 productionResourceGroupResourceId=${productionResourceGroupResourceId:1}
 
 az ad sp create --id $productionApplicationRegistrationObjectId
-
-
-az ad sp create --id $productionApplicationRegistrationObjectId
 az role assignment create \
    --assignee $productionApplicationRegistrationAppId \
    --role Contributor \
